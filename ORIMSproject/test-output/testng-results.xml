@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-17T21:28:00 IST" name="Default suite" finished-at="2024-11-17T21:28:15 IST" duration-ms="14700">
+  <suite started-at="2024-11-19T18:49:50 IST" name="Default suite" finished-at="2024-11-19T18:50:23 IST" duration-ms="32920">
     <groups>
     </groups>
-    <test started-at="2024-11-17T21:28:00 IST" name="Default test" finished-at="2024-11-17T21:28:15 IST" duration-ms="14700">
-      <class name="testcases.ApplicationRegistration">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.ApplicationRegistration@2d710f1a]" started-at="2024-11-17T21:28:00 IST" name="setup" finished-at="2024-11-17T21:28:05 IST" duration-ms="4671" status="PASS">
+    <test started-at="2024-11-19T18:49:50 IST" name="Default test" finished-at="2024-11-19T18:50:23 IST" duration-ms="32920">
+      <class name="testcases.ApplicationCreation">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:49:50 IST" name="setup" finished-at="2024-11-19T18:49:55 IST" duration-ms="4442" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Login(java.lang.String,java.lang.String)[pri:1, instance:testcases.ApplicationRegistration@2d710f1a]" started-at="2024-11-17T21:28:06 IST" name="Login" data-provider="loginData" finished-at="2024-11-17T21:28:14 IST" duration-ms="8365" status="PASS">
+        <test-method signature="Login(java.lang.String,java.lang.String)[pri:1, instance:testcases.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:49:56 IST" name="Login" data-provider="loginData" finished-at="2024-11-19T18:50:02 IST" duration-ms="6410" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,113 +27,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="ApplicationDraft(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:testcases.ApplicationRegistration@2d710f1a]" started-at="2024-11-17T21:28:14 IST" name="ApplicationDraft" data-provider="App-draft" finished-at="2024-11-17T21:28:15 IST" duration-ms="208" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Compensation]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Missing Persons]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Missing Person 1]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[10/27/22]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Amila]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[768976567v]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="root"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/button"}
-  (Session info: chrome=130.0.6723.117)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.26.0', revision: '8ccf0219d7'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e1765806a72f8fe46f6230658fa742c3, findElement {value=//*[@id="root"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/button, using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.117, chrome: {chromedriverVersion: 130.0.6723.116 (6ac35f94ae3..., userDataDir: C:\Users\Sheli\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:5806}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:5806/devtool..., se:cdpVersion: 130.0.6723.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e1765806a72f8fe46f6230658fa742c3]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="root"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/button"}
-  (Session info: chrome=130.0.6723.117)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.26.0', revision: '8ccf0219d7'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e1765806a72f8fe46f6230658fa742c3, findElement {value=//*[@id="root"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/button, using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.117, chrome: {chromedriverVersion: 130.0.6723.116 (6ac35f94ae3..., userDataDir: C:\Users\Sheli\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:5806}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:5806/devtool..., se:cdpVersion: 130.0.6723.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e1765806a72f8fe46f6230658fa742c3
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-at testcases.ApplicationRegistration.ApplicationDraft(ApplicationRegistration.java:29)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method signature="AppCreation()[pri:3, instance:testcases.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:50:02 IST" name="AppCreation" finished-at="2024-11-19T18:50:23 IST" duration-ms="20808" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ApplicationDraft -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.ApplicationRegistration@2d710f1a]" started-at="2024-11-17T21:28:15 IST" name="tearDown" finished-at="2024-11-17T21:28:15 IST" duration-ms="470" status="PASS">
+        </test-method> <!-- AppCreation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:50:23 IST" name="tearDown" finished-at="2024-11-19T18:50:23 IST" duration-ms="241" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testcases.ApplicationRegistration -->
+      </class> <!-- testcases.ApplicationCreation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

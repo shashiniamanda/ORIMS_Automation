@@ -8,7 +8,7 @@ public class ReadPropertyFile {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		FileReader fr = new FileReader("C:\\iTerminalProjects\\ORIMSproject\\src\\test\\resources\\config\\config.properties");
+		FileReader fr = new FileReader("\src\test\resources\config\config.properties");
         Properties p = new Properties();
         p.load(fr);
         

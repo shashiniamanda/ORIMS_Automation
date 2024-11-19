@@ -42,8 +42,5 @@ public class ReadXLSdata {
     public String[][] getAppDraftData() throws IOException {
         return readDataFromSheet("App-draft");
     }
-    @DataProvider(name = "Section1")
-    public String[][] getSection1Data() throws IOException {
-        return readDataFromSheet("Section1");
-    } 
+
 }
