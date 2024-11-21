@@ -39,8 +39,8 @@ public class Listener implements ITestListener {
 		try {
 			String screenshotPath = captureScreenshot(result.getMethod().getMethodName());
 			// Attach screenshot to ReportNG
-			System.setProperty("org.uncommons.reportng.escape-output", "false");
-			System.out.println("<a href=\"" + screenshotPath + "\">Screenshot</a>");
+			System.setProperty("org.uncommons.reporting.escape-output", "false");
+			System.out.println("<a href=\"" + screenshotPath + "\">Test Results</a>");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

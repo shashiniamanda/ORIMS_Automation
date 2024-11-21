@@ -1,5 +1,6 @@
 package base;
 
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -25,8 +26,8 @@ public class BaseTest {
 	public static WebDriver driver;
 	public static Properties prop = new Properties();
 	public static Properties loc = new Properties();
-	public static FileReader fr;
-	public static FileReader fr1;
+	public static FileReader fr, fr1;
+
 	public static WebElement dropdownElement;
 	public static Select dropdown;
 	

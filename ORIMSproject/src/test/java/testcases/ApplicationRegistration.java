@@ -195,11 +195,9 @@ public class ApplicationRegistration extends BaseTest {
 			WebElement allocatedOption = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='"+allocation+"']")));
 			allocatedOption.click();
-			
-			Thread.sleep(4000);
 
 			WebElement proceedButton = driver.findElement(
-					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[3]/button[1]"));
+					By.cssSelector("#root > div > div > div > div.col-md-10.col-sm-12.col-12 > div.body-layout.row > div > div.dynamic-page-layout.row > div > div.create-role-page-layout.row > div.d-flex.justify-content-end.mt-4.col-sm-12 > button:nth-child(1)"));
 			proceedButton.click();
 
 			Thread.sleep(3000);
@@ -208,13 +206,18 @@ public class ApplicationRegistration extends BaseTest {
 					.elementToBeClickable(By.id("remark")));
 			remark.sendKeys("Testing");
 
+			Thread.sleep(3000);
+
 			WebElement okButton = wait.until(ExpectedConditions
 					.elementToBeClickable((By.cssSelector("body > div.fade.modal.show > div > div > div.modal-footer > button.save-button"))));
 			okButton.click();
 
 			Thread.sleep(3000);
 			
-			System.out.println("File Created!");
+		    WebElement ok2Button = wait.until(ExpectedConditions
+							.elementToBeClickable((By.cssSelector("body > div.fade.modal.show > div > div > div.modal-footer > button:nth-child(2)"))));
+					ok2Button.click();
+			Thread.sleep(3000);
 
 		} catch (Exception e) {
 			e.printStackTrace();
