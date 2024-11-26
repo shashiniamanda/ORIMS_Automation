@@ -53,15 +53,17 @@ public class ApplicationCreation extends BaseTest {
 					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[3]/button[1]"));
 			proceedButton.click();
 
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 
-			wait.until(ExpectedConditions.elementToBeClickable(By.id("remark")));
+			WebElement remark = wait.until(ExpectedConditions
+					.elementToBeClickable(By.id("remark")));
+			remark.sendKeys("Testing");
 
 			WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable((By
 					.cssSelector("body > div.fade.modal.show > div > div > div.modal-footer > button.save-button"))));
 			okButton.click();
 
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 
 			WebElement section2Button = driver.findElement(
 					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[4]/button"));
@@ -88,7 +90,7 @@ public class ApplicationCreation extends BaseTest {
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='"+appType+"']")));
 			applicantTypeOption.click();
 
-			Thread.sleep(4000);
+			Thread.sleep(2000);
 
 			WebElement titleType = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"formGroupTitle\"]")));
@@ -117,14 +119,15 @@ public class ApplicationCreation extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement relationshipTypeOption = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='" + relationship + "']")));
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='"+relationship+"']")));
 			relationshipTypeOption.click();
 
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
 			Thread.sleep(2000);
 
-			WebElement saveButton = driver.findElement(
+			WebElement nextButton = driver.findElement(
 					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[2]/button[2]"));
-			saveButton.click();
+			nextButton.click();
 
 			Thread.sleep(2000);
 
@@ -140,9 +143,10 @@ public class ApplicationCreation extends BaseTest {
 
 	// Section 3 - Aggrieved Person Details
 	@Test(priority = 5, dataProvider = "Section3", dataProviderClass = ReadXLSdata.class)
-	public static void AppCreationSection3(String title, String name, String nic, String marital, String province,
+	public static void AppCreationSection3(String title, String name, String nic, String marital, String address, String province,
 			String district, String dsDivision, String gnDivision, String place, String compDate) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+		WebDriverWait wait;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		try {
 			WebElement titleType = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"formGroupTitle\"]")));
@@ -154,15 +158,10 @@ public class ApplicationCreation extends BaseTest {
 
 			Thread.sleep(2000);
 
-			WebElement nameField = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"formApplicantName\"]")));
-			nameField.click();
-
 			WebElement applicantName = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"formApplicantName\"]")));
 			applicantName.sendKeys(name);
 
-			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
 			Thread.sleep(2000);
 
 			WebElement idTyperadioButton = driver.findElement(By.id("inline-selection-2"));
@@ -174,7 +173,7 @@ public class ApplicationCreation extends BaseTest {
 			nicRadio.click();
 
 			WebElement nicNumber = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"formNICNumber\"]")));
+					.until(ExpectedConditions.elementToBeClickable(By.id("formNICNumber")));
 			nicNumber.sendKeys(nic);
 
 			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
@@ -188,7 +187,12 @@ public class ApplicationCreation extends BaseTest {
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='" + marital + "']")));
 			maritalOption.click();
 
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
 			Thread.sleep(2000);
+
+			WebElement addressField = wait
+					.until(ExpectedConditions.elementToBeClickable(By.id("formPermanentAddressWhenIncidentOccurred")));
+			addressField.sendKeys(address);
 
 			WebElement provinceType = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 					"//*[@id=\"file-aggrieved-person-details-form\"]/div[10]/div[1]/div[1]/div/div[1]/div[2]")));
@@ -236,7 +240,9 @@ public class ApplicationCreation extends BaseTest {
 			WebElement placeField = wait
 					.until(ExpectedConditions.elementToBeClickable(By.id("formPlaceOfTheIncident")));
 			placeField.sendKeys(place);
-			
+
+
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
 			Thread.sleep(2000);
 			
 			WebElement complaintDate = wait.until(ExpectedConditions
@@ -254,13 +260,19 @@ public class ApplicationCreation extends BaseTest {
 					By.xpath("//*[@id=\"file-aggrieved-person-details-form\"]/div[17]/div/button"));
 			compensationButton.click();
 
-			WebElement saveButton = driver.findElement(
-					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[2]/button[2]"));
-			saveButton.click();
+			Thread.sleep(4000);
+
+			WebElement nextButton = driver.findElement(
+					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[2]/button[1]"));
+			nextButton.click();
+
+			Thread.sleep(3000);
 
 			WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable((By
 					.cssSelector("body > div.fade.modal.show > div > div > div.modal-footer > button.save-button"))));
 			okButton.click();
+
+			Thread.sleep(2000);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -276,25 +288,24 @@ public class ApplicationCreation extends BaseTest {
 			WebElement titleType = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"formGroupTitle\"]")));
 			titleType.click();
-			
 
 			WebElement titleOption = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='" + title + "']")));
 			titleOption.click();
-			
-			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
+
+			Thread.sleep(2000);
+
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,700);");
 			Thread.sleep(2000);
 			
-			
-			WebElement maritalType = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"/html/body/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div/form/div[9]/div[3]/select")));
+			WebElement maritalType = wait.until(ExpectedConditions.elementToBeClickable(By.id(
+					"formDpMaritalStatus")));
 			maritalType.click();
 
 			WebElement maritalOption = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='" + marital + "']")));
 			maritalOption.click();
-		
-			
+
 			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
 			Thread.sleep(2000);
 			
@@ -304,30 +315,49 @@ public class ApplicationCreation extends BaseTest {
 			
 			WebElement  printCheckbox= driver.findElement(By.xpath("//*[@id=\"file-dependent-details-form\"]/div[12]/div[2]/div[1]/div/input"));
 			printCheckbox.click();
+
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,600);");
+			Thread.sleep(3000);
 			
 			WebElement addButton = driver.findElement(
 					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[2]/button"));
 			addButton.click();
-			
-			Thread.sleep(2000);
+
+			Thread.sleep(3000);
+
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,400);");
+			Thread.sleep(3000);
 			
 			WebElement compensationButton = driver.findElement(
 					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[4]/div[2]/button"));
 			compensationButton.click();
-			
-			Thread.sleep(2000);
+
+			Thread.sleep(3000);
 			
 			WebElement compensationField = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[4]/div[2]/table/tbody/tr/td[3]/div/input")));
 			compensationField.sendKeys(compValue);
 
-			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
+			WebElement addButton2 = driver.findElement(
+					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[4]/div[3]/button"));
+			addButton2.click();
+
+			Thread.sleep(3000);
+
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,300);");
 			Thread.sleep(2000);
-			
+
+
 			WebElement nextButton = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[2]/button[1]")));
 			nextButton.click();
 			
+			Thread.sleep(2000);
+
+			WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable((By
+					.id("confirmation-ok"))));
+			okButton.click();
+
 			Thread.sleep(2000);
 			
 		} catch (Exception e) {
@@ -336,22 +366,20 @@ public class ApplicationCreation extends BaseTest {
 	}
 	
 	//Section 5
-	@Test
+	@Test(priority = 6)
 	public static void AppCreationSection5() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		try {
 
-			WebElement nextButton = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[13]/button")));
-			nextButton.click();
-
-			Thread.sleep(2000);
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,-300);");
+			Thread.sleep(3000);
 
 			WebElement uploadElement = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[2]/div[2]/div/button"));
 			uploadElement.click();
 
 			Thread.sleep(2000);
-			uploadElement.sendKeys("\\src\\test\\resources\\testdata\\document1.pdf");
+			uploadElement.sendKeys("C:\\Users\\Sheli\\Downloads\\document1.pdf");
+
 
 			Thread.sleep(2000);
 
@@ -360,14 +388,23 @@ public class ApplicationCreation extends BaseTest {
 			okButton.click();
 			Thread.sleep(5000);
 
-			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,400);");
 			Thread.sleep(2000);
 
 			WebElement submitButton = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[3]/button[1]")));
 			submitButton.click();
 
+
+			WebElement ok2Button = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"confirmation-ok\"]")));
+			ok2Button.click();
+
 			Thread.sleep(5000);
+
+			WebElement ok3Button = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[5]/div/div/div[3]/button")));
+			ok3Button.click();
 
 		}catch(Exception e) {
 			e.printStackTrace();

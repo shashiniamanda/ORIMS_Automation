@@ -34,25 +34,29 @@ public class ReadXLSdata {
     }
 
     @DataProvider(name = "loginData")
-    public String[][] getLoginData() throws IOException {
+    public Object[][] getLoginData() throws IOException {
         return readDataFromSheet("Login");
     }
 
     @DataProvider(name = "App-draft")
-    public String[][] getAppDraftData() throws IOException {
+    public Object[][] getAppDraftData() throws IOException {
         return readDataFromSheet("App-draft");
     }
     @DataProvider(name = "Section2")
-    public String[][] getSection2Data() throws IOException {
+    public Object[][] getSection2Data() throws IOException {
         return readDataFromSheet("Section2");
     }
     @DataProvider(name = "Section3")
-    public String[][] getSection3Data() throws IOException {
+    public Object[][] getSection3Data() throws IOException {
         return readDataFromSheet("Section3");
     }
     @DataProvider(name = "Section4")
-    public String[][] getSection4Data() throws IOException {
+    public Object[][] getSection4Data() throws IOException {
         return readDataFromSheet("Section4");
+    }
+    @DataProvider(name = "chequeDetails")
+    public Object[][] getChequeData() throws IOException {
+        return readDataFromSheet("chequeDetails");
     }
 
 }
