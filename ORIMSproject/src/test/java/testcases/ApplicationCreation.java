@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
@@ -63,11 +64,19 @@ public class ApplicationCreation extends BaseTest {
 					.cssSelector("body > div.fade.modal.show > div > div > div.modal-footer > button.save-button"))));
 			okButton.click();
 
-			Thread.sleep(4000);
+			Thread.sleep(2000);
 
 			WebElement section2Button = driver.findElement(
 					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[4]/button"));
 			section2Button.click();
+
+			Thread.sleep(2000);
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			String toastText = (String) js.executeScript("return document.querySelector('.Toastify__toast-body').innerText");
+
+			String expectedMessage = "The application has been modified successfully";
+			Assert.assertEquals(toastText, expectedMessage, "Toast message did not match!");
 
 			Thread.sleep(3000);
 
@@ -135,6 +144,12 @@ public class ApplicationCreation extends BaseTest {
 			okButton.click();
 
 			Thread.sleep(2000);
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			String toastText = (String) js.executeScript("return document.querySelector('.Toastify__toast-body').innerText");
+
+			String expectedMessage = "Application Drafted Successfully";
+			Assert.assertEquals(toastText, expectedMessage, "Toast message did not match!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -274,13 +289,19 @@ public class ApplicationCreation extends BaseTest {
 
 			Thread.sleep(2000);
 
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			String toastText = (String) js.executeScript("return document.querySelector('.Toastify__toast-body').innerText");
+
+			String expectedMessage = "Application Drafted Successfully";
+			Assert.assertEquals(toastText, expectedMessage, "Toast message did not match!");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	// Section 4 - Dependent Details
-	@Test(priority = 5, dataProvider = "Section4", dataProviderClass = ReadXLSdata.class)
+	@Test(priority = 6, dataProvider = "Section4", dataProviderClass = ReadXLSdata.class)
 	public static void AppCreationSection4(String title, String marital, String address, String compValue ) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		try {
@@ -359,6 +380,11 @@ public class ApplicationCreation extends BaseTest {
 			okButton.click();
 
 			Thread.sleep(2000);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			String toastText = (String) js.executeScript("return document.querySelector('.Toastify__toast-body').innerText");
+
+			String expectedMessage = "Application Drafted Successfully";
+			Assert.assertEquals(toastText, expectedMessage, "Toast message did not match!");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -366,7 +392,7 @@ public class ApplicationCreation extends BaseTest {
 	}
 	
 	//Section 5
-	@Test(priority = 6)
+	@Test(priority = 7)
 	public static void AppCreationSection5() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		try {
@@ -405,6 +431,13 @@ public class ApplicationCreation extends BaseTest {
 			WebElement ok3Button = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[5]/div/div/div[3]/button")));
 			ok3Button.click();
+
+			// Assertion
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			String toastText = (String) js.executeScript("return document.querySelector('.Toastify__toast-body').innerText");
+
+			String expectedMessage = "Application Created Successfully";
+			Assert.assertEquals(toastText, expectedMessage, "Toast message did not match!");
 
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.ReadXLSdata;
 
@@ -13,7 +14,7 @@ import java.time.Duration;
 
 public class ApprovalProcess extends BaseTest {
 
-    @Test (priority = 2)
+    @Test (priority = 8)
     public void RecommendationApproval() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -60,6 +61,21 @@ public class ApprovalProcess extends BaseTest {
 
             Thread.sleep(5000);
 
+            // Locate the table
+            WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[2]/table")); // Replace with your table's locator
+
+            // Locate the specific row and column
+            WebElement cell = table.findElement(By.xpath("//tr[1]/td[10]"));
+
+            // Get the status text from the cell
+            String actualStatus = cell.getText();
+            String expectedStatus = "Recommend to Pay";
+
+            // Assert the status
+            Assert.assertEquals(actualStatus, expectedStatus, "File status does not match the expected value.");
+
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +83,7 @@ public class ApprovalProcess extends BaseTest {
 
     }
 
-    @Test(priority = 3)
+    @Test(priority = 9)
     public void ApprovalStageApproval() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -115,12 +131,25 @@ public class ApprovalProcess extends BaseTest {
 
             Thread.sleep(5000);
 
+            // Locate the table
+            WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[2]/table"));
+
+            // Locate the specific row and column
+            WebElement cell = table.findElement(By.xpath("//tr[1]/td[10]"));
+
+            // Get the status text from the cell
+            String actualStatus = cell.getText();
+            String expectedStatus = "Certification Pending";
+
+            // Assert the status
+            Assert.assertEquals(actualStatus, expectedStatus, "File status does not match the expected value.");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-    @Test (priority = 4)
+    @Test (priority = 10)
     public void CertificationApproval() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -168,12 +197,25 @@ public class ApprovalProcess extends BaseTest {
 
             Thread.sleep(5000);
 
+            // Locate the table
+            WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[2]/table"));
+
+            // Locate the specific row and column
+            WebElement cell = table.findElement(By.xpath("//tr[1]/td[10]"));
+
+            // Get the status text from the cell
+            String actualStatus = cell.getText();
+            String expectedStatus = "Cheque Payment Pending";
+
+            // Assert the status
+            Assert.assertEquals(actualStatus, expectedStatus, "File status does not match the expected value.");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-    @Test (priority = 5, dataProvider = "chequeDetails", dataProviderClass = ReadXLSdata.class)
+    @Test (priority = 11, dataProvider = "chequeDetails", dataProviderClass = ReadXLSdata.class)
     public void ChequeApproval(String voucherNumber, String chequeNumber, String chequeIssuedDate) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -259,6 +301,19 @@ public class ApprovalProcess extends BaseTest {
 
             Thread.sleep(3000);
 
+            // Locate the table
+            WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[2]/table"));
+
+            // Locate the specific row and column
+            WebElement cell = table.findElement(By.xpath("//tr[1]/td[10]"));
+
+            // Get the status text from the cell
+            String actualStatus = cell.getText();
+            String expectedStatus = "Cheque Payment Pending";
+
+            // Assert the status
+            Assert.assertEquals(actualStatus, expectedStatus, "File status does not match the expected value.");
+
             //cheque print
 
            navigationMenu.click();
@@ -279,6 +334,29 @@ public class ApprovalProcess extends BaseTest {
                     "//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/table/tbody/tr[1]/td[12]/button"));
             chequeButton.click();
 
+            ((JavascriptExecutor) driver).executeScript("window.scrollBy(500,0);");
+            Thread.sleep(2000);
+
+            WebElement chequeDetailsButton = driver.findElement(
+                    By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/table/tbody/tr[1]/td[12]/button"));
+            chequeDetailsButton.click();
+
+            Thread.sleep(2000);
+
+            WebElement chequeRow = driver.findElement(By.xpath(
+                    "//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div/div/table/tbody/tr"));
+            chequeRow.click();
+            Thread.sleep(2000);
+
+            WebElement chequePrintButton = driver.findElement(
+                    By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[2]/div/button[1]"));
+            chequePrintButton.click();
+
+            Thread.sleep(2000);
+
+            WebElement printChequeOk = driver.findElement(
+                    By.id("confirmation-ok"));
+            printChequeOk.click();
 
 
         } catch (Exception e) {

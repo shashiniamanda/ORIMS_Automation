@@ -3,14 +3,20 @@ package base;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -62,6 +68,17 @@ public class BaseTest {
 		// Interact with the Login button
 		driver.findElement(By.className(loc.getProperty("loginbutton"))).click();
 		Thread.sleep(6000);
+
+
+		// Assertion for successful login
+		String currentUrl = driver.getCurrentUrl();
+
+		// Expected URL after successful login
+		String expectedUrl = "http://43.224.126.156:81/dashboard";
+
+		// Assert the current URL
+		Assert.assertEquals(currentUrl, expectedUrl, "The redirection URL after login is incorrect!");
+
 	}
 
 
@@ -73,4 +90,7 @@ public class BaseTest {
 		
 	}
 
+	public WebDriver getDriver() {
+		return driver;
+	}
 }

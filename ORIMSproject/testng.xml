@@ -9,6 +9,8 @@
             <class name="base.BaseTest" />
             <class name="testcases.ApplicationRegistration" />
             <class name="testcases.ApplicationCreation" />
+            <class name="testcases.ApprovalProcess" />
+
         </classes>
     </test>
 </suite>

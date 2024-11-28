@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -120,11 +121,17 @@ public class ApplicationRegistration extends BaseTest {
 			searchButton.click();
 
 			Thread.sleep(5000);
-			
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			String toastText = (String) js.executeScript("return document.querySelector('.Toastify__toast-body').innerText");
+			System.out.println(toastText);
+
+			String expectedMessage = "Application Drafted Successfully";
+			Assert.assertEquals(toastText, expectedMessage, "Toast message did not match!");
+
 			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,800);");
 			Thread.sleep(2000);
-			
-			System.out.println("File Created!");
+
 
 			WebElement provinceType = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div")));
@@ -192,8 +199,7 @@ public class ApplicationRegistration extends BaseTest {
 					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[4]/div[1]/div/div")));
 			allocated.click();
 
-			WebElement allocatedOption;
-			allocatedOption = wait
+			WebElement allocatedOption = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Amanda User']")));
 			allocatedOption.click();
 

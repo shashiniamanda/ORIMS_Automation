@@ -1,11 +1,13 @@
 package utilities;
 
+import base.BaseTest;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.Reporter;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,20 +32,18 @@ public class Listener implements ITestListener {
 		System.out.println("Test Passed: " + result.getMethod().getMethodName());
 	}
 
+
 	@Override
 	public void onTestFailure(ITestResult result) {
-		System.out.println("Test Failed: " + result.getMethod().getMethodName());
-		System.out.println("Error: " + result.getThrowable());
 
-		// Capture Screenshot
-		try {
-			String screenshotPath = captureScreenshot(result.getMethod().getMethodName());
-			// Attach screenshot to ReportNG
-			System.setProperty("org.uncommons.reporting.escape-output", "false");
-			System.out.println("<a href=\"" + screenshotPath + "\">Test Results</a>");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		// Retrieve WebDriver instance from the BaseTest or test class
+		Object currentClass = result.getInstance();
+		WebDriver driver = ((BaseTest) currentClass).getDriver();
+
+		// Initialize ScreenshotHelper and capture a screenshot
+		ScreenshotHelper screenshotHelper = new ScreenshotHelper(driver);
+		screenshotHelper.getScreenshot(result.getName());
+
 	}
 
 	@Override
