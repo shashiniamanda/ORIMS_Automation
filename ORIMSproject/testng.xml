@@ -6,10 +6,9 @@
     </listeners>
     <test name="Test" thread-count="5">
         <classes>
-            <class name="base.BaseTest" />
-            <class name="testcases.ApplicationRegistration" />
-            <class name="testcases.ApplicationCreation" />
-            <class name="testcases.ApprovalProcess" />
+            <class name="GPC.GPCApplicationCreation"></class>
+
+
 
         </classes>
     </test>

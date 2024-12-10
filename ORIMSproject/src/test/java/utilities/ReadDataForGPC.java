@@ -1,18 +1,17 @@
 package utilities;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 
-public class ReadXLSdata {
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
+public class ReadDataForGPC {
     private String[][] readDataFromSheet(String sheetName) throws IOException {
-        File excelfile = new File("./src/test/resources/testdata/testdata.xlsx");
+        File excelfile = new File("./src/test/resources/testdata/testdataGPC.xlsx");
         FileInputStream fis = new FileInputStream(excelfile);
         XSSFWorkbook wb = new XSSFWorkbook(fis);
         XSSFSheet sheet = wb.getSheet(sheetName);
@@ -21,13 +20,13 @@ public class ReadXLSdata {
 
         String[][] data = new String[noOfRows - 1][noOfColumns];
         DataFormatter df = new DataFormatter();
-        
+
         for (int i = 0; i < noOfRows - 1; i++) {
             for (int j = 0; j < noOfColumns; j++) {
                 data[i][j] = df.formatCellValue(sheet.getRow(i + 1).getCell(j));
             }
         }
-        
+
         wb.close();
         fis.close();
         return data;

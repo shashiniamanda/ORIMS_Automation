@@ -30,7 +30,7 @@ public class ScreenshotHelper  extends BaseTest {
             File destinationFile = new File(destinationPath);
             FileUtils.copyFile(screenshot, destinationFile);
 
-            System.out.println("Screenshot saved at: " + destinationPath);
+            LogUtils.info("Screenshot saved at: " + destinationPath);
 
         } catch (IOException e) {
             e.printStackTrace();

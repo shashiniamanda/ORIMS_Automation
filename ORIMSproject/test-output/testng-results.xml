@@ -6,12 +6,12 @@
     <groups>
     </groups>
     <test started-at="2024-11-19T18:49:50 IST" name="Default test" finished-at="2024-11-19T18:50:23 IST" duration-ms="32920">
-      <class name="testcases.ApplicationCreation">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:49:50 IST" name="setup" finished-at="2024-11-19T18:49:55 IST" duration-ms="4442" status="PASS">
+      <class name="MP.ApplicationCreation">
+        <test-method is-config="true" signature="setup()[pri:0, instance:MP.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:49:50 IST" name="setup" finished-at="2024-11-19T18:49:55 IST" duration-ms="4442" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Login(java.lang.String,java.lang.String)[pri:1, instance:testcases.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:49:56 IST" name="Login" data-provider="loginData" finished-at="2024-11-19T18:50:02 IST" duration-ms="6410" status="PASS">
+        <test-method signature="Login(java.lang.String,java.lang.String)[pri:1, instance:MP.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:49:56 IST" name="Login" data-provider="loginData" finished-at="2024-11-19T18:50:02 IST" duration-ms="6410" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,15 +27,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="AppCreation()[pri:3, instance:testcases.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:50:02 IST" name="AppCreation" finished-at="2024-11-19T18:50:23 IST" duration-ms="20808" status="PASS">
+        <test-method signature="AppCreation()[pri:3, instance:MP.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:50:02 IST" name="AppCreation" finished-at="2024-11-19T18:50:23 IST" duration-ms="20808" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AppCreation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:50:23 IST" name="tearDown" finished-at="2024-11-19T18:50:23 IST" duration-ms="241" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:MP.ApplicationCreation@2d710f1a]" started-at="2024-11-19T18:50:23 IST" name="tearDown" finished-at="2024-11-19T18:50:23 IST" duration-ms="241" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testcases.ApplicationCreation -->
+      </class> <!-- MP.ApplicationCreation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

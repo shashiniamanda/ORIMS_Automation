@@ -3,7 +3,7 @@
 <suite name="OR Suite">
 	<test thread-count="5" name="OR Test">
 		<classes>
-			<class name="testcases.ApplicationRegistration" />
+			<class name="MP.ApplicationRegistration" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.ApplicationRegistration">
+      <class name="MP.ApplicationRegistration">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
           <include name="ApplicationDraft" invocation-numbers="0"/>
         </methods>
-      </class> <!-- testcases.ApplicationRegistration -->
+      </class> <!-- MP.ApplicationRegistration -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

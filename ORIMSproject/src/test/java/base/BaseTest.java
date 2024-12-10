@@ -42,7 +42,7 @@ public class BaseTest {
 	public void setup() throws IOException {
 
 		if (driver == null) {
-			fr = new FileReader(System.getProperty("user.dir") + "\\src\\\\test\\\\resources\\\\config\\\\config.properties");
+			fr = new FileReader(System.getProperty("user.dir") + "\\src\\test\\resources\\config\\\\config.properties");
 			fr1 = new FileReader(System.getProperty("user.dir") + "\\src\\\\test\\\\resources\\\\config\\\\locators.properties");
 			prop.load(fr);
 			loc.load(fr1);

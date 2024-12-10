@@ -1,4 +1,4 @@
-package testcases;
+package MP;
 
 import java.time.Duration;
 
@@ -28,31 +28,31 @@ public class ApplicationRegistration extends BaseTest {
 		try {
 			Thread.sleep(2000);
 			WebElement navigationMenu = driver
-					.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div[1]/div[3]/div[1]"));
+					.findElement(By.xpath(loc.getProperty("application-registration")));
 			navigationMenu.click();
 
 			Thread.sleep(2000);
 
 			WebElement fileRegisterTile = driver.findElement(
-					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[1]/button"));
+					By.xpath(loc.getProperty("fileRegistration-tile")));
 			fileRegisterTile.click();
 
 			Thread.sleep(2000);
 
 			WebElement fileRegisterTile02 = driver.findElement(
-					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[1]/button"));
+					By.xpath(loc.getProperty("fileRegistration-tile")));
 			fileRegisterTile02.click();
 
 			Thread.sleep(2000);
 
 			WebElement addButton = driver.findElement(
-					By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/button"));
+					By.xpath(loc.getProperty("addButton")));
 			addButton.click();
 
 			Thread.sleep(2000);
 
 			WebElement programType = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//*[@id=\"file-registration-form\"]/div[1]/div[2]/div/div")));
+					.elementToBeClickable(By.xpath(loc.getProperty("program-type"))));
 			programType.click();
 
 			WebElement programTypeOption = wait
@@ -60,7 +60,7 @@ public class ApplicationRegistration extends BaseTest {
 			programTypeOption.click();
 
 			WebElement schemeType = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//*[@id=\"file-registration-form\"]/div[1]/div[3]/div/div")));
+					.elementToBeClickable(By.xpath(loc.getProperty("scheme-type"))));
 			schemeType.click();
 
 			Thread.sleep(2000);
@@ -72,7 +72,7 @@ public class ApplicationRegistration extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement incidentType = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//*[@id=\"file-registration-form\"]/div[1]/div[5]/div/div")));
+					.elementToBeClickable(By.xpath(loc.getProperty("incident-type"))));
 			incidentType.click();
 
 			Thread.sleep(2000);
@@ -84,7 +84,7 @@ public class ApplicationRegistration extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement incidentDate = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//*[@id=\"file-registration-form\"]/div[1]/div[6]/div[1]/div")));
+					.elementToBeClickable(By.xpath(loc.getProperty("incident-date"))));
 			incidentDate.click();
 
 			WebElement incidentDateOption = wait.until(ExpectedConditions
@@ -92,7 +92,7 @@ public class ApplicationRegistration extends BaseTest {
 			incidentDateOption.click();
 
 			WebElement appName = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"formApplicantName\"]")));
+					.until(ExpectedConditions.elementToBeClickable(By.id(loc.getProperty("applicant-name"))));
 			appName.sendKeys(applicantName);
 
 			Thread.sleep(2000);
@@ -100,41 +100,47 @@ public class ApplicationRegistration extends BaseTest {
 			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
 			Thread.sleep(2000);
 
-			WebElement idTyperadioButton = driver.findElement(By.id("inline-selection-2"));
+			WebElement idTyperadioButton = driver.findElement(By.id(loc.getProperty("idRadio-button")));
 			idTyperadioButton.click();
 
 			Thread.sleep(2000);
 
-			WebElement nicRadio = driver.findElement(By.id("formNICNumberType-O"));
+			WebElement nicRadio = driver.findElement(By.id(loc.getProperty("oldNIC-radio")));
 			nicRadio.click();
 			
 
-			WebElement nicNumber = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"/html/body/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/form/div[2]/div[7]/div/input")));
+			WebElement nicNumber = wait.until(ExpectedConditions.elementToBeClickable(By.id(
+					loc.getProperty("nicNumber"))));
 			nicNumber.sendKeys(nic);
 			
 			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
 			Thread.sleep(2000);
 			
 			WebElement searchButton = driver.findElement(
-					By.xpath("/html/body/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[2]/button[2]")); 
+					By.xpath(loc.getProperty("search-button")));
 			searchButton.click();
 
 			Thread.sleep(5000);
 
+			//Assertion
+
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			String toastText = (String) js.executeScript("return document.querySelector('.Toastify__toast-body').innerText");
+
+
 			System.out.println(toastText);
 
 			String expectedMessage = "Application Drafted Successfully";
-			Assert.assertEquals(toastText, expectedMessage, "Toast message did not match!");
+			Assert.assertEquals(toastText, expectedMessage, "Application initial draft was unsuccessful!");
+
+			//Scroll down
 
 			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,800);");
 			Thread.sleep(2000);
 
 
 			WebElement provinceType = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div")));
+					loc.getProperty("province-type"))));
 			provinceType.click();
 			
 			Thread.sleep(2000);
@@ -146,7 +152,7 @@ public class ApplicationRegistration extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement districtType = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div")));
+					loc.getProperty("district-type"))));
 			districtType.click();
 
 			WebElement districtOption = wait
@@ -156,7 +162,7 @@ public class ApplicationRegistration extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement ds = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div[3]/div/div")));
+					loc.getProperty("ds-division"))));
 			ds.click();
 
 			WebElement dsOption = wait
@@ -166,7 +172,7 @@ public class ApplicationRegistration extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement gn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div[4]/div")));
+					loc.getProperty("gn-division"))));
 			gn.click();
 
 			WebElement gnOption = wait
@@ -176,7 +182,7 @@ public class ApplicationRegistration extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement appliedDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[3]/div[1]/div")));
+					loc.getProperty("applied-date"))));
 			appliedDate.click();
 
 			WebElement appliedDateOption = wait.until(ExpectedConditions
@@ -186,7 +192,7 @@ public class ApplicationRegistration extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement frDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[3]/div[2]/div[1]")));
+					loc.getProperty("fr-date"))));
 			frDate.click();
 
 			WebElement frDateOption = wait.until(ExpectedConditions
@@ -196,33 +202,33 @@ public class ApplicationRegistration extends BaseTest {
 			Thread.sleep(2000);
 
 			WebElement allocated = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div[4]/div[1]/div/div")));
+					loc.getProperty("allocated-user"))));
 			allocated.click();
 
-			WebElement allocatedOption = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Amanda User']")));
+			WebElement allocatedOption = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("//*[text()='Amanda User']")));
 			allocatedOption.click();
 
 			WebElement proceedButton = driver.findElement(
-					By.xpath("/html/body/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[3]/button[1]"));
+					By.xpath(loc.getProperty("proceed-button")));
 			proceedButton.click();
 
 			Thread.sleep(3000);
 
 			WebElement remark = wait.until(ExpectedConditions
-					.elementToBeClickable(By.id("remark")));
+					.elementToBeClickable(By.id(loc.getProperty("similar-record-remark"))));
 			remark.sendKeys("Testing");
 
 			Thread.sleep(3000);
 
 			WebElement okButton = wait.until(ExpectedConditions
-					.elementToBeClickable((By.cssSelector("body > div.fade.modal.show > div > div > div.modal-footer > button.save-button"))));
+					.elementToBeClickable((By.cssSelector(loc.getProperty("ok-button")))));
 			okButton.click();
 
 			Thread.sleep(2000);
 			
 		    WebElement ok2Button = wait.until(ExpectedConditions
-							.elementToBeClickable((By.xpath("/html/body/div[5]/div/div/div[3]/button[2]"))));
+							.elementToBeClickable((By.xpath(loc.getProperty("ok2button")))));
 					ok2Button.click();
 
 

@@ -24,12 +24,12 @@ public class Listener implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
-		System.out.println("Test Started: " + result.getMethod().getMethodName());
+		LogUtils.info("Test Started: " + result.getMethod().getMethodName());
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("Test Passed: " + result.getMethod().getMethodName());
+		LogUtils.info("Test Passed: " + result.getMethod().getMethodName());
 	}
 
 
@@ -44,26 +44,30 @@ public class Listener implements ITestListener {
 		ScreenshotHelper screenshotHelper = new ScreenshotHelper(driver);
 		screenshotHelper.getScreenshot(result.getName());
 
+		LogUtils.info("Test Failed: " + result.getMethod().getMethodName());
+
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		System.out.println("Test Skipped: " + result.getMethod().getMethodName());
+		LogUtils.info("Test Skipped: " + result.getMethod().getMethodName());
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		System.out.println("Test Partially Failed: " + result.getMethod().getMethodName());
+		LogUtils.info("Test Partially Failed: " + result.getMethod().getMethodName());
 	}
 
 	@Override
 	public void onStart(ITestContext context) {
-		System.out.println("Test Suite Started: " + context.getName());
+
+		LogUtils.info("Test Suite Started: " + context.getName());
 	}
 
 	@Override
 	public void onFinish(ITestContext context) {
-		System.out.println("Test Suite Finished: " + context.getName());
+
+		LogUtils.info("Test Suite Finished: " + context.getName());
 	}
 
 	// Helper method to capture screenshot
