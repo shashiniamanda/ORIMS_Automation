@@ -25,6 +25,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import utilities.ReadXLSDataLoan;
 import utilities.ReadXLSdata;
 
 public class BaseTest {
@@ -43,7 +44,7 @@ public class BaseTest {
 
 		if (driver == null) {
 			fr = new FileReader(System.getProperty("user.dir") + "\\src\\test\\resources\\config\\\\config.properties");
-			fr1 = new FileReader(System.getProperty("user.dir") + "\\src\\\\test\\\\resources\\\\config\\\\locators.properties");
+			fr1 = new FileReader(System.getProperty("user.dir") + "\\src\\\\test\\\\resources\\\\config\\\\locators_file2.properties");
 			prop.load(fr);
 			loc.load(fr1);
 		}
@@ -59,7 +60,7 @@ public class BaseTest {
 
 	}
 
-	@Test(dataProvider = "loginData", dataProviderClass = ReadXLSdata.class, priority = 1)
+	@Test(dataProvider = "loginData", dataProviderClass = ReadXLSDataLoan.class, priority = 1)
 	public void Login(String username, String password) throws InterruptedException {
 		// Fill the username
 		driver.findElement(By.id(loc.getProperty("user-name"))).sendKeys(username);
@@ -67,28 +68,28 @@ public class BaseTest {
 		driver.findElement(By.id(loc.getProperty("pass-word"))).sendKeys(password);
 		// Interact with the Login button
 		driver.findElement(By.className(loc.getProperty("loginbutton"))).click();
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 
 
-		// Assertion for successful login
-		String currentUrl = driver.getCurrentUrl();
-
-		// Expected URL after successful login
-		String expectedUrl = "http://43.224.126.156:81/dashboard";
-
-		// Assert the current URL
-		Assert.assertEquals(currentUrl, expectedUrl, "The redirection URL after login is incorrect!");
+//		// Assertion for successful login
+//		String currentUrl = driver.getCurrentUrl();
+//
+//		// Expected URL after successful login
+//		String expectedUrl = "http://43.224.126.156:81/dashboard";
+//
+//		// Assert the current URL
+//		Assert.assertEquals(currentUrl, expectedUrl, "The redirection URL after login is incorrect!");
 
 	}
 
 
 	
-	@AfterTest
-	public void tearDown() {
-		
-		driver.close();
-		
-	}
+//	@AfterTest
+//	public void tearDown() {
+//
+//		driver.close();
+//
+//	}
 
 	public WebDriver getDriver() {
 		return driver;

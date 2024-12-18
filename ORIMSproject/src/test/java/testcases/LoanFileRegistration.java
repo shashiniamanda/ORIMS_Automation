@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class LoanFileRegistration extends BaseTest {
 
-	@Test(dataProvider = "Loan-draft", dataProviderClass = utilities.ReadXLSdata.class, priority = 10)
+	@Test(dataProvider = "Loan-draft", dataProviderClass = utilities.ReadXLSDataLoan.class, priority = 10)
 	public static void testReturnFunctionality(String programtype, String scheme, String applicantname, String nic,
 			String province, String district, String dsDivision, String gnDivision, String applieddate,
 			String receiveddate, String allocateType) throws InterruptedException {

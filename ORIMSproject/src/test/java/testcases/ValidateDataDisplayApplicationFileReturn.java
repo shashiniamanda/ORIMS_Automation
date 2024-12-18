@@ -25,7 +25,7 @@ public class ValidateDataDisplayApplicationFileReturn extends BaseTest {
 
 			// Navigate to the File Registration Tab
 			WebElement fileRegistrationTab = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath(loc.getProperty("fileRegistration-Tab"))));
+					.until(ExpectedConditions.elementToBeClickable(By.xpath(loc.getProperty("file-Registration-Tab"))));
 			fileRegistrationTab.click();
 
 			// Navigate to the Application Files Tab

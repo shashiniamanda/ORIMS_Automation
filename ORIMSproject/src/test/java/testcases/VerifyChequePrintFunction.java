@@ -40,12 +40,12 @@ public class VerifyChequePrintFunction extends BaseTest {
 
 			// Select the specific application row
 			WebElement applicationRow = wait.until(
-					ExpectedConditions.visibilityOfElementLocated(By.xpath(loc.getProperty("application-Row1"))));
+					ExpectedConditions.visibilityOfElementLocated(By.xpath(loc.getProperty("application-Row4"))));
 			applicationRow.click();
 
 			// Click on the Cheque Details button
 			WebElement chequeDetailsButton = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath(loc.getProperty("chequeDetails-Button"))));
+					By.xpath(loc.getProperty("cheque-Details-Button"))));
 			chequeDetailsButton.click();
 
 			// Select the drawer

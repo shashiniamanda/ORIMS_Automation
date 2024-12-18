@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.ReadXLSDataLoan;
 import utilities.ReadXLSdata;
 
 import java.time.Duration;
@@ -57,7 +58,7 @@ public class LoanFileCreation extends BaseTest {
 	}
 
 	// Section 2 - Applicant Details
-	@Test(priority = 12, dataProvider = "Section2", dataProviderClass = ReadXLSdata.class)
+	@Test(priority = 12, dataProvider = "Section2", dataProviderClass = ReadXLSDataLoan.class)
 	public static void AppCreationSection2(String applicantTitle, String pAddress, String maritalStatus,
 			String occupation) throws InterruptedException {
 
@@ -145,7 +146,7 @@ public class LoanFileCreation extends BaseTest {
 	}
 
 	// Section 3 - Applicant Details
-	@Test(priority = 13, dataProvider = "Section3", dataProviderClass = ReadXLSdata.class)
+	@Test(priority = 13, dataProvider = "Section3", dataProviderClass = ReadXLSDataLoan.class)
 	public static void AppCreationSection3(String fmonthlyIncome) throws InterruptedException {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -201,7 +202,7 @@ public class LoanFileCreation extends BaseTest {
 	}
 
 	// Section 4 - Applicant Details
-	@Test(priority = 14, dataProvider = "Section4", dataProviderClass = ReadXLSdata.class)
+	@Test(priority = 14, dataProvider = "Section4", dataProviderClass = ReadXLSDataLoan.class)
 	public static void AppCreationSection4(String outstandingAmount, String bankname, String detailsApplication,
 			String forHowyrs, String fortrainHowyrs, String requireLAmount, String requirePeriod, String gracePeriod,
 			String approvedLAmount, String bName, String brName, String accountNo) throws InterruptedException {

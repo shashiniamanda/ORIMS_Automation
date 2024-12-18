@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.ReadXLSDataLoan;
 import utilities.ReadXLSdata;
 
 import java.time.Duration;
@@ -40,6 +41,8 @@ public class LoanFileReturnedAndRecreate extends BaseTest {
 					.until(ExpectedConditions.elementToBeClickable(By.xpath(loc.getProperty("seReturn-Tab"))));
 			seReturnTab.click();
 
+			Thread.sleep(2000);
+
 			WebElement fRow = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath(loc.getProperty("f-Row1"))));
 			fRow.click();
@@ -63,7 +66,7 @@ public class LoanFileReturnedAndRecreate extends BaseTest {
 	}
 
 	// Section 2 Return
-	@Test(priority = 17, dataProvider = "Section2Return", dataProviderClass = ReadXLSdata.class)
+	@Test(priority = 17, dataProvider = "Section2Return", dataProviderClass = ReadXLSDataLoan.class)
 	public static void AppCreationSection2(String applicantTitle, String pAddress, String maritalStatus,
 			String occupation) throws InterruptedException {
 
@@ -156,7 +159,7 @@ public class LoanFileReturnedAndRecreate extends BaseTest {
 	}
 
 	// Section 3 Return
-	@Test(priority = 18, dataProvider = "Section3Return", dataProviderClass = ReadXLSdata.class)
+	@Test(priority = 18, dataProvider = "Section3Return", dataProviderClass = ReadXLSDataLoan.class)
 	public static void AppCreationSection3(String fmonthlyIncome) throws InterruptedException {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -220,7 +223,7 @@ public class LoanFileReturnedAndRecreate extends BaseTest {
 	}
 
 	// Section 4 Return
-	@Test(priority = 19, dataProvider = "Section4Return", dataProviderClass = ReadXLSdata.class)
+	@Test(priority = 19, dataProvider = "Section4Return", dataProviderClass = ReadXLSDataLoan.class)
 	public static void AppCreationSection4(String detailsApplication, String forHowyrs, String fortrainHowyrs,
 			String requireLAmount, String requirePeriod, String gracePeriod, String approvedLAmount, String bName,
 			String brName, String accountNo) throws InterruptedException {

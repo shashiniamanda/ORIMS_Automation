@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class ValidateNewChequeIssuanceFunction extends BaseTest {
 
-	@Test(dataProvider = "Cheque-details", dataProviderClass = utilities.ReadXLSdata.class, priority = 9)
+	@Test(dataProvider = "Cheque-details", dataProviderClass = utilities.ReadXLSDataLoan.class, priority = 9)
 	public static void testReturnFunctionality(String voucherNumber, String chequeNumber, String stampType,
 			String chequeIssueDate) throws InterruptedException {
 
