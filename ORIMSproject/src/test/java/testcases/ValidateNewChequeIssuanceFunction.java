@@ -104,6 +104,7 @@ public class ValidateNewChequeIssuanceFunction extends BaseTest {
 //                  .elementToBeClickable(By.xpath("//button[contains(@class, 'save-button') and text()='Approve']")));
 //          approveButton.click();
 
+
 //			// Verify the success message "Cheque payments approved successfully"
 //			WebElement successMessage = wait.until(ExpectedConditions
 //					.visibilityOfElementLocated(By.xpath("//div[text()='Cheque payments approved successfully']")));

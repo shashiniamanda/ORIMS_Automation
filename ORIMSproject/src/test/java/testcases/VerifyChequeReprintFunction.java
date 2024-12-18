@@ -94,6 +94,7 @@ public class VerifyChequeReprintFunction extends BaseTest {
 					byte[] pdfBytes = java.util.Base64.getDecoder().decode(pdfBase64);
 					InputStream pdfStream = new ByteArrayInputStream(pdfBytes);
 
+
 					// Use PDFBox to read the content
 					//PDDocument document = PDDocument.load(pdfStream);
 					//PDFTextStripper pdfStripper = new PDFTextStripper();

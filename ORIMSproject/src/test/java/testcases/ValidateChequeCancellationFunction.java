@@ -67,6 +67,7 @@ public class ValidateChequeCancellationFunction extends BaseTest {
 					.elementToBeClickable(By.xpath(loc.getProperty("ok-Button"))));
 			confirmationButton.click();
 
+
 			// Verify the success message "Cheque canceled successfully"
 			WebElement successMessage = wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath("//div[text()='Cheque canceled successfully']")));

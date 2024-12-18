@@ -43,6 +43,7 @@ public class ValidateDataDisplayApplicationFileReturn extends BaseTest {
 					.until(ExpectedConditions.elementToBeClickable(By.xpath(loc.getProperty("file-Row"))));
 			fileRow.click();
 
+
 			// Optional: Log success message
 			// System.out.println("Data display and application file return functionality
 			// executed successfully!");

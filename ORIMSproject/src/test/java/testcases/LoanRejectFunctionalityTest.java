@@ -54,6 +54,7 @@ public class LoanRejectFunctionalityTest extends BaseTest {
 //			WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.modal-footer > button.save-button")));
 //			okButton.click();
 
+
 //			// Verify the success message "Application rejected Successfully"
 //			WebElement successMessage = wait.until(ExpectedConditions
 //					.visibilityOfElementLocated(By.xpath("//div[text()='Application rejected Successfully']")));

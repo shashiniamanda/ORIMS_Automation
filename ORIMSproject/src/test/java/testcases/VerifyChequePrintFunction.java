@@ -100,6 +100,7 @@ public class VerifyChequePrintFunction extends BaseTest {
 					//PDFTextStripper pdfStripper = new PDFTextStripper();
 					//String pdfText = pdfStripper.getText(document);
 
+
 					// Close the document and InputStream
 					//document.close();
 					//pdfStream.close();
